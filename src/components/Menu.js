@@ -17,20 +17,22 @@ const Menu = ({ handleSearchedProduct }) => {
           });
         });
 
-      document.querySelectorAll(".dropdown-menu fs-5 a").forEach(function (element) {
-        element.addEventListener("click", function (e) {
-          let nextEl = this.nextElementSibling;
-          if (nextEl && nextEl.classList.contains("submenu")) {
-            // prevent opening link if link needs to open dropdown
-            e.preventDefault();
-            if (nextEl.style.display == "block") {
-              nextEl.style.display = "none";
-            } else {
-              nextEl.style.display = "block";
+      document
+        .querySelectorAll(".dropdown-menu fs-5 a")
+        .forEach(function (element) {
+          element.addEventListener("click", function (e) {
+            let nextEl = this.nextElementSibling;
+            if (nextEl && nextEl.classList.contains("submenu")) {
+              // prevent opening link if link needs to open dropdown
+              e.preventDefault();
+              if (nextEl.style.display == "block") {
+                nextEl.style.display = "none";
+              } else {
+                nextEl.style.display = "block";
+              }
             }
-          }
+          });
         });
-      });
     }
     // end if innerWidth
   });
@@ -82,7 +84,7 @@ const Menu = ({ handleSearchedProduct }) => {
                         <Link
                           className="dropdown-item"
                           to="/search"
-                          onClick={() => handleSearchedProduct("Mousse1")}
+                          onClick={() => handleSearchedProduct("Mousse")}
                         >
                           Mousse
                         </Link>
@@ -91,7 +93,7 @@ const Menu = ({ handleSearchedProduct }) => {
                         <Link
                           className="dropdown-item"
                           to="/search"
-                          onClick={() => handleSearchedProduct("CheeseCake")}
+                          onClick={() => handleSearchedProduct("Cheese Cake")}
                         >
                           Cheese Cake
                         </Link>
@@ -106,7 +108,7 @@ const Menu = ({ handleSearchedProduct }) => {
                               className="dropdown-item"
                               to="/search"
                               onClick={() =>
-                                handleSearchedProduct("Buttercream1")
+                                handleSearchedProduct("Buttercream Cake")
                               }
                             >
                               Buttercream 1
@@ -117,7 +119,7 @@ const Menu = ({ handleSearchedProduct }) => {
                               className="dropdown-item"
                               to="/search"
                               onClick={() =>
-                                handleSearchedProduct("Buttercream2")
+                                handleSearchedProduct("Buttercream Cake")
                               }
                             >
                               Buttercream 2
@@ -136,7 +138,7 @@ const Menu = ({ handleSearchedProduct }) => {
                         <Link
                           className="dropdown-item"
                           to="/search"
-                          onClick={() => handleSearchedProduct("Croissants")}
+                          onClick={() => handleSearchedProduct("Croissant")}
                         >
                           Croissants
                         </Link>
@@ -145,7 +147,7 @@ const Menu = ({ handleSearchedProduct }) => {
                         <Link
                           className="dropdown-item"
                           to="/search"
-                          onClick={() => handleSearchedProduct("Turnovers")}
+                          onClick={() => handleSearchedProduct("Turnover")}
                         >
                           Turnovers
                         </Link>
@@ -159,7 +161,7 @@ const Menu = ({ handleSearchedProduct }) => {
                             <Link
                               className="dropdown-item"
                               to="/search"
-                              onClick={() => handleSearchedProduct("Brioches1")}
+                              onClick={() => handleSearchedProduct("Brioche")}
                             >
                               Brioche 1
                             </Link>
@@ -168,7 +170,7 @@ const Menu = ({ handleSearchedProduct }) => {
                             <Link
                               className="dropdown-item"
                               to="/search"
-                              onClick={() => handleSearchedProduct("Brioches2")}
+                              onClick={() => handleSearchedProduct("Brioche")}
                             >
                               Brioches 2
                             </Link>
@@ -179,7 +181,7 @@ const Menu = ({ handleSearchedProduct }) => {
                         <Link
                           className="dropdown-item"
                           to="/search"
-                          onClick={() => handleSearchedProduct("Muffins")}
+                          onClick={() => handleSearchedProduct("Muffin")}
                         >
                           Muffins
                         </Link>
@@ -195,7 +197,7 @@ const Menu = ({ handleSearchedProduct }) => {
                         <Link
                           className="dropdown-item"
                           to="/search"
-                          onClick={() => handleSearchedProduct("TartsSweets")}
+                          onClick={() => handleSearchedProduct("TartsSweet")}
                         >
                           Sweets
                         </Link>
@@ -331,24 +333,9 @@ const Menu = ({ handleSearchedProduct }) => {
                           Loaf
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          className="dropdown-item"
-                          to="/search"
-                          onClick={() => handleSearchedProduct("CountryBread")}
-                        >
-                          Country bread
-                        </Link>
-                      </li>
                     </ul>
                   </li>
 
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      {" "}
-                      Just in case{" "}
-                    </a>
-                  </li>
                 </ul>
               </li>
               {/* Location */}

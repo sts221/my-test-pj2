@@ -17,17 +17,18 @@ const SearchComponent = ({
           </div>
         </div>
         <div className="row gy-5">
-          <div class="col-9">
-            <div class="row gy-5">
+          <div className="col-lg-9 col-md-6 col-sm-3 ">
+            <div className="row gy-5">
               {filteredProducts.length === 0 ? (
                 <p className="no-results">
                   Sorry Geek, No matching Product found.
                 </p>
               ) : (
                 filteredProducts.map((product) => (
-                  <div key={product.id} className="col-sm-4 mb-3 mb-sm-0">
+                  // <div key={product.id} className="col-sm col-mb-6 col-lg-4 mb-3 mb-sm-0">
+                  <div key={product.id} className="col-sm-auto col-mb-auto col-lg-auto">
                     <div
-                      className="card"
+                      className="card h-70"
                       style={{
                         width: "18rem",
                         boxShadow: "10px 10px 10px black",
@@ -59,7 +60,7 @@ const SearchComponent = ({
               )}
             </div>
           </div>
-          <div class="col-3" style={{border:"2px solid red"}}>
+          <div className="col-lg-3 col-sm-5 p-3" style={{border:"1px solid", boxShadow:"black 10px 10px 10px"}}>
             <UserCartComponent
               cartProducts={cartProducts}
               setCartProducts={setCartProducts}

@@ -15,7 +15,7 @@ const UserCartComponent = ({
   return (
     <>
       <div className="row g-5">
-        <div className="col col-lg-auto col-md-auto col-sm-auto order-md-last">
+        <div className="col col-lg col-md col-sm order-md-last">
           <h4 className="d-flex justify-content-between align-items-center mb-3">
             <span className="text-primary">Your cart</span>
             <span className="badge bg-primary rounded-pill">3</span>
