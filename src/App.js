@@ -5,7 +5,7 @@ import Menu from "./components/Menu";
 import HomeComponent from "./components/HomeComponent";
 import SearchComponent from "./components/SearchComponent";
 import UserCartComponent from "./components/UserCartComponent";
-import CheckoutComponent from "./components/Checkout";
+import CheckoutComponent from "./components/CheckoutComponent";
 import AdvancedSearchComponent from "./components/AdvancedSearchComponent";
 
 function App() {
@@ -928,7 +928,12 @@ function App() {
     );
   };
   // ************* End of Search Component ***************** //
-
+  // Executes after each render
+  useEffect(() => {
+    console.log("useEffect executed");
+    console.log("CART: ", cartProducts);
+  });
+  
   return (
     <div className="container">
       <Router>
@@ -950,8 +955,8 @@ function App() {
           <Route path="/advancedSearch">
             <AdvancedSearchComponent/>
           </Route>
-          <Route>
-            <CheckoutComponent cartProducts={cartProducts} />
+          <Route path="/checkout">
+            <CheckoutComponent cartProducts={cartProducts} setCartProducts={setCartProducts}/>
           </Route>
         </Switch>
       </Router>

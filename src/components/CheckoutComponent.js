@@ -6,50 +6,54 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // import "./checkoutComponent.css";
 
-const CheckoutComponent = ({ cartProducts }) => {
+const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
   const [startDate, setStartDate] = useState(new Date());
   let handleColor = (time) => {
     return time.getHours() > 12 ? "text-success" : "text-error";
   };
 
-  const displayConfirmation = (e) => {
-    cartProducts = [];
-    e.stopPropagation();
-    alert("Confirmation number: 123456789");
-    // const history = useHistory();
-    // const routeChange = () => {
-    // history.push("/");
-    // };
-  }
+  const history = useHistory();
+  const routeChange = () => {
+    // cartProducts = [];
+    setCartProducts([]);
+    {
+      alert("Confirmation number: 123456789");
+    }
+    history.push("/");
+  };
 
+  const handleChangeValue = (e) => {
+    console.log(e.target);
+  };
   return (
     <>
       <div className="container">
         <main>
-          <div class="row" style={{ border: "2px solid red" }}>
-            
-              {cartProducts.map((item, i) => (
-                <div key={i} className="col-1" style={{ margin: "10px" }}>
-                  <h6> {item.product.name}</h6>
-                  <img
-                    className="item_img"
-                    src={require(`${item.product.image}`)}
-                    alt={item.product.name}
-                    style={{width:"100px", height:"80px"}}
-                  />
-                  <p>Price: ₹{item.product.price}</p>
-                </div>
-              ))}
-            
+          <div className="row" style={{ border: "2px solid red" }}>
+            {cartProducts.map((item, i) => (
+              <div key={i} className="col-1" style={{ margin: "10px" }}>
+                <h6> {item.product.name}</h6>
+                <img
+                  className="item_img"
+                  src={require(`${item.product.image}`)}
+                  alt={item.product.name}
+                  style={{ width: "100px", height: "80px" }}
+                />
+                <p>Price: ₹{item.product.price}</p>
+              </div>
+            ))}
           </div>
 
           {/* <div className="col-md-7 col-lg-8"> */}
           <div className="col-md col-lg p-3">
             <h4 className="mb-3">Billing address</h4>
-            <form className="needs-validation" noValidate>
+            <form
+              className="needs-validation"
+              noValidate
+            >
               <div className="row g-3">
                 <div className="col-sm-6">
-                  <label for="firstName" className="form-label fs-5">
+                  <label htmlFor="firstName" className="form-label fs-5">
                     First name
                   </label>
                   <input
@@ -57,8 +61,10 @@ const CheckoutComponent = ({ cartProducts }) => {
                     className="form-control"
                     id="firstName"
                     placeholder=""
-                    value=""
                     required
+                    onChange={() => {
+                      handleChangeValue();
+                    }}
                   />
                   <div className="invalid-feedback">
                     Valid first name is required.
@@ -66,7 +72,7 @@ const CheckoutComponent = ({ cartProducts }) => {
                 </div>
 
                 <div className="col-sm-6">
-                  <label for="lastName" className="form-label fs-5">
+                  <label htmlFor="lastName" className="form-label fs-5">
                     Last name
                   </label>
                   <input
@@ -74,7 +80,6 @@ const CheckoutComponent = ({ cartProducts }) => {
                     className="form-control"
                     id="lastName"
                     placeholder=""
-                    value=""
                     required
                   />
                   <div className="invalid-feedback">
@@ -83,7 +88,7 @@ const CheckoutComponent = ({ cartProducts }) => {
                 </div>
 
                 <div className="col-12">
-                  <label for="email" className="form-label fs-5">
+                  <label htmlFor="email" className="form-label fs-5">
                     Email{" "}
                     <span className="text-body-secondary">(Optional)</span>
                   </label>
@@ -94,12 +99,12 @@ const CheckoutComponent = ({ cartProducts }) => {
                     placeholder="you@example.com"
                   />
                   <div className="invalid-feedback">
-                    Please enter a valid email address for shipping updates.
+                    Please enter a valid email address htmlFor shipping updates.
                   </div>
                 </div>
 
                 <div className="col-12">
-                  <label for="address" className="form-label fs-5">
+                  <label htmlFor="address" className="form-label fs-5">
                     Address
                   </label>
                   <input
@@ -108,6 +113,9 @@ const CheckoutComponent = ({ cartProducts }) => {
                     id="address"
                     placeholder="1234 Main St"
                     required
+                    onChange={() => {
+                      handleChangeValue();
+                    }}
                   />
                   <div className="invalid-feedback">
                     Please enter your shipping address.
@@ -123,7 +131,7 @@ const CheckoutComponent = ({ cartProducts }) => {
                   className="form-check-input"
                   id="same-address"
                 />
-                <label className="form-check-label" for="same-address">
+                <label className="form-check-label" htmlFor="same-address">
                   Shipping address is the same as my billing address
                 </label>
               </div>
@@ -133,8 +141,11 @@ const CheckoutComponent = ({ cartProducts }) => {
                   type="checkbox"
                   className="form-check-input"
                   id="save-info"
+                  onChange={() => {
+                    handleChangeValue();
+                  }}
                 />
-                <label className="form-check-label" for="save-info">
+                <label className="form-check-label" htmlFor="save-info">
                   Save this information for next time
                 </label>
               </div>
@@ -144,7 +155,7 @@ const CheckoutComponent = ({ cartProducts }) => {
               <DatePickerComponent />
 
               <div className="col-12">
-                <label for="message" className="form-label fs-5">
+                <label htmlFor="message" className="form-label fs-5">
                   Custom message for the cake:{" "}
                 </label>
                 <textarea
@@ -157,7 +168,7 @@ const CheckoutComponent = ({ cartProducts }) => {
               <hr className="my-4" />
 
               <div className="col-12">
-                <label for="instructions" className="form-label fs-5">
+                <label htmlFor="instructions" className="form-label fs-5">
                   Additional instructions:{" "}
                 </label>
                 <textarea
@@ -180,8 +191,11 @@ const CheckoutComponent = ({ cartProducts }) => {
                     className="form-check-input"
                     checked
                     required
+                    onChange={() => {
+                      handleChangeValue();
+                    }}
                   />
-                  <label className="form-check-label" for="credit">
+                  <label className="form-check-label" htmlFor="credit">
                     Credit card
                   </label>
                 </div>
@@ -192,8 +206,11 @@ const CheckoutComponent = ({ cartProducts }) => {
                     type="radio"
                     className="form-check-input"
                     required
+                    onChange={() => {
+                      handleChangeValue();
+                    }}
                   />
-                  <label className="form-check-label" for="debit">
+                  <label className="form-check-label" htmlFor="debit">
                     Debit card
                   </label>
                 </div>
@@ -204,8 +221,11 @@ const CheckoutComponent = ({ cartProducts }) => {
                     type="radio"
                     className="form-check-input"
                     required
+                    onChange={() => {
+                      handleChangeValue();
+                    }}
                   />
-                  <label className="form-check-label" for="paypal">
+                  <label className="form-check-label" htmlFor="paypal">
                     PayPal
                   </label>
                 </div>
@@ -213,7 +233,7 @@ const CheckoutComponent = ({ cartProducts }) => {
 
               <div className="row gy-3">
                 <div className="col-md-6">
-                  <label for="cc-name" className="form-label">
+                  <label htmlFor="cc-name" className="form-label">
                     Name on card
                   </label>
                   <input
@@ -222,6 +242,9 @@ const CheckoutComponent = ({ cartProducts }) => {
                     id="cc-name"
                     placeholder=""
                     required
+                    onChange={() => {
+                      handleChangeValue();
+                    }}
                   />
                   <small className="text-body-secondary">
                     Full name as displayed on card
@@ -232,7 +255,7 @@ const CheckoutComponent = ({ cartProducts }) => {
                 </div>
 
                 <div className="col-md-6">
-                  <label for="cc-number" className="form-label">
+                  <label htmlFor="cc-number" className="form-label">
                     Credit card number
                   </label>
                   <input
@@ -241,6 +264,9 @@ const CheckoutComponent = ({ cartProducts }) => {
                     id="cc-number"
                     placeholder=""
                     required
+                    onChange={() => {
+                      handleChangeValue();
+                    }}
                   />
                   <div className="invalid-feedback">
                     Credit card number is required
@@ -248,7 +274,7 @@ const CheckoutComponent = ({ cartProducts }) => {
                 </div>
 
                 <div className="col-md-3">
-                  <label for="cc-expiration" className="form-label">
+                  <label htmlFor="cc-expiration" className="form-label">
                     Expiration
                   </label>
                   <input
@@ -257,6 +283,9 @@ const CheckoutComponent = ({ cartProducts }) => {
                     id="cc-expiration"
                     placeholder=""
                     required
+                    onChange={() => {
+                      handleChangeValue();
+                    }}
                   />
                   <div className="invalid-feedback">
                     Expiration date required
@@ -264,7 +293,7 @@ const CheckoutComponent = ({ cartProducts }) => {
                 </div>
 
                 <div className="col-md-3">
-                  <label for="cc-cvv" className="form-label">
+                  <label htmlFor="cc-cvv" className="form-label">
                     CVV
                   </label>
                   <input
@@ -273,6 +302,9 @@ const CheckoutComponent = ({ cartProducts }) => {
                     id="cc-cvv"
                     placeholder=""
                     required
+                    onChange={() => {
+                      handleChangeValue();
+                    }}
                   />
                   <div className="invalid-feedback">Security code required</div>
                 </div>
@@ -280,54 +312,16 @@ const CheckoutComponent = ({ cartProducts }) => {
 
               <hr className="my-4" />
 
-              <button className="w-100 btn btn-primary btn-lg" type="submit" onClick={displayConfirmation}>
+              <button type="button"
+                className="w-100 btn btn-primary btn-lg"
+                // type="submit"
+                // onClick={displayConfirmation}
+                onClick={routeChange}
+              >
                 Continue to checkout 121
               </button>
             </form>
           </div>
-
-          {/* <form className="checkout">
-            <div className="item_checkout full-width">
-              {cartProducts.map((item, i) => (
-                <div key={i} className="item" style={{ margin: "10px" }}>
-                  <h2 className="item_name"> {item.product.name}</h2>
-                  <img
-                    className="item_img"
-                    src={item.product.image}
-                    alt={item.product.name}
-                  />
-                  <p>Price: ₹{item.product.price}</p>
-                </div>
-              ))}
-            </div>
-            <div>
-              <label for="name">Name</label>
-              <input id="name" type="text" />
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" type="email" />
-            </div>
-            <DatePickerComponent />
-            <div>
-              <label for="message" className="large-label">
-                Custom message for the cake:{" "}
-              </label>
-              <textarea id="message"></textarea>
-            </div>
-
-            <div>
-              <label for="message" className="large-label">
-                Additional instructions:{" "}
-              </label>
-              <textarea id="message"></textarea>
-            </div>
-
-            <div className="full-width">
-              <button type="submit">Send Response</button>
-              <button type="reset">Clear Form</button>
-            </div>
-          </form> */}
         </main>
       </div>
     </>

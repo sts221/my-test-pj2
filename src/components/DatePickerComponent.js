@@ -10,23 +10,20 @@ const DatePickerComponent = () => {
   return (
     <>
       <div className="col-sm-6">
-      
-          <label for="dateSelect" className="form-label fs-5 p-3">
-            Please select your pickup date:
-          </label>
+        <label htmlFor="dateSelect" className="form-label fs-5 p-3">
+          Please select your pickup date:
+        </label>
         <DatePicker
           selected={startDate}
           onChange={(date) => setStartDate(date)}
           id="dateSelect"
           className="fs-5"
         />
- 
-        
       </div>
 
       <div className="col-sm-6">
-        <label for="timeSelect" className="form-label fs-5 p-3">
-          Please select your pickup time: 
+        <label htmlFor="timeSelect" className="form-label fs-5 p-3">
+          Please select your pickup time:
         </label>
         <DatePicker
           selected={startDate}
