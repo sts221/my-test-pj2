@@ -1,5 +1,7 @@
 import DatePickerComponent from "./DatePickerComponent";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // import "./checkoutComponent.css";
@@ -11,8 +13,13 @@ const CheckoutComponent = ({ cartProducts }) => {
   };
 
   const displayConfirmation = (e) => {
+    cartProducts = [];
     e.stopPropagation();
     alert("Confirmation number: 123456789");
+    // const history = useHistory();
+    // const routeChange = () => {
+    // history.push("/");
+    // };
   }
 
   return (
@@ -28,7 +35,7 @@ const CheckoutComponent = ({ cartProducts }) => {
                     className="item_img"
                     src={require(`${item.product.image}`)}
                     alt={item.product.name}
-                    style={{width:"100px"}}
+                    style={{width:"100px", height:"80px"}}
                   />
                   <p>Price: ₹{item.product.price}</p>
                 </div>

@@ -352,12 +352,14 @@ const Menu = ({ handleSearchedProduct }) => {
                   Recipe of the month{" "}
                 </a>
               </li>
-              {/* Search*/}
+              {/* Advanced Search*/}
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  {" "}
-                  Search{" "}
-                </a>
+                {/* <a className="nav-link" href="#">
+                  Advanced Search
+                </a> */}
+                <Link className="nav-link" to="/advancedSearch">
+                  Advanced Search
+                </Link>
               </li>
               {/* Reviews */}
               <li className="nav-item">

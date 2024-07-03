@@ -28,7 +28,7 @@ const SearchComponent = ({
                   // <div key={product.id} className="col-sm col-mb-6 col-lg-4 mb-3 mb-sm-0">
                   <div key={product.id} className="col-sm-auto col-mb-auto col-lg-auto">
                     <div
-                      className="card h-70"
+                      className="card"
                       style={{
                         width: "18rem",
                         boxShadow: "10px 10px 10px black",

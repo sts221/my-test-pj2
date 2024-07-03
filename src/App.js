@@ -6,6 +6,7 @@ import HomeComponent from "./components/HomeComponent";
 import SearchComponent from "./components/SearchComponent";
 import UserCartComponent from "./components/UserCartComponent";
 import CheckoutComponent from "./components/Checkout";
+import AdvancedSearchComponent from "./components/AdvancedSearchComponent";
 
 function App() {
   // const [products, setProducts] = useState([
@@ -945,6 +946,9 @@ function App() {
               deleteProductFromCartFunction={deleteProductFromCartFunction}
               totalAmountCalculationFunction={totalAmountCalculationFunction}
             />
+          </Route>
+          <Route path="/advancedSearch">
+            <AdvancedSearchComponent/>
           </Route>
           <Route>
             <CheckoutComponent cartProducts={cartProducts} />
