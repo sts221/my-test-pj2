@@ -14,7 +14,6 @@ const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
 
   const history = useHistory();
   const routeChange = () => {
-    // cartProducts = [];
     setCartProducts([]);
     {
       alert("Confirmation number: 123456789");
