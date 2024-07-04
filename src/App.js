@@ -12,6 +12,7 @@ import RecipeComponent1 from "./components/RecipeComponent1";
 import RecipeComponent2 from "./components/RecipeComponent2";
 import RecipeComponent3 from "./components/RecipeComponent3";
 import RecipeComponent4 from "./components/RecipeComponent4";
+import AboutUsComponent from "./components/AboutUsComponent";
 
 function App() {
   // const [products, setProducts] = useState([
@@ -938,7 +939,7 @@ function App() {
     console.log("useEffect executed");
     console.log("CART: ", cartProducts);
   });
-  
+
   return (
     <div className="container">
       <Router>
@@ -958,25 +959,31 @@ function App() {
             />
           </Route>
           <Route path="/advancedSearch">
-            <AdvancedSearchComponent/>
+            <AdvancedSearchComponent />
           </Route>
           <Route path="/checkout">
-            <CheckoutComponent cartProducts={cartProducts} setCartProducts={setCartProducts}/>
+            <CheckoutComponent
+              cartProducts={cartProducts}
+              setCartProducts={setCartProducts}
+            />
           </Route>
-          <Route  path="/recipe/step0">
-             <RecipeComponent0></RecipeComponent0>
+          <Route path="/recipe/step0">
+            <RecipeComponent0></RecipeComponent0>
           </Route>
-          <Route  path="/recipe/step1">
-             <RecipeComponent1></RecipeComponent1>
+          <Route path="/recipe/step1">
+            <RecipeComponent1></RecipeComponent1>
           </Route>
-          <Route  path="/recipe/step2">
-             <RecipeComponent2></RecipeComponent2>
+          <Route path="/recipe/step2">
+            <RecipeComponent2></RecipeComponent2>
           </Route>
-          <Route  path="/recipe/step3">
-             <RecipeComponent3></RecipeComponent3>
+          <Route path="/recipe/step3">
+            <RecipeComponent3></RecipeComponent3>
           </Route>
-          <Route  path="/recipe/step4">
-             <RecipeComponent4></RecipeComponent4>
+          <Route path="/recipe/step4">
+            <RecipeComponent4></RecipeComponent4>
+          </Route>
+          <Route path="/aboutus">
+            <AboutUsComponent />
           </Route>
         </Switch>
       </Router>

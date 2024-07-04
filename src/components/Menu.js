@@ -45,8 +45,8 @@ const Menu = ({ handleSearchedProduct }) => {
         style={{ backgroundColor: "#e3f2fd" }}
       >
         <div className="container-fluid fs-5">
-          <a className="navbar-brand" href="#">
-            Brand
+          <a className="navbar-brand" href="#" >
+          Little Euro Bakery
           </a>
           <button
             className="navbar-toggler"
@@ -376,6 +376,11 @@ const Menu = ({ handleSearchedProduct }) => {
                   {" "}
                   Contact us{" "}
                 </a>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/aboutus">
+                  About us
+                </Link>
               </li>
             </ul>
 
