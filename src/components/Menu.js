@@ -347,10 +347,12 @@ const Menu = ({ handleSearchedProduct }) => {
               </li>
               {/* Recipe of the month */}
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  {" "}
-                  Recipe of the month{" "}
-                </a>
+                {/* <a className="nav-link" href="#">
+                  Recipe of the month
+                </a> */}
+                <Link className="nav-link" to="/recipe/step0">
+                  Recipe of the month
+                </Link>
               </li>
               {/* Advanced Search*/}
               <li className="nav-item">

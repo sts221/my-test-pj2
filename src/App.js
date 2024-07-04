@@ -7,6 +7,11 @@ import SearchComponent from "./components/SearchComponent";
 import UserCartComponent from "./components/UserCartComponent";
 import CheckoutComponent from "./components/CheckoutComponent";
 import AdvancedSearchComponent from "./components/AdvancedSearchComponent";
+import RecipeComponent0 from "./components/RecipeComponent0";
+import RecipeComponent1 from "./components/RecipeComponent1";
+import RecipeComponent2 from "./components/RecipeComponent2";
+import RecipeComponent3 from "./components/RecipeComponent3";
+import RecipeComponent4 from "./components/RecipeComponent4";
 
 function App() {
   // const [products, setProducts] = useState([
@@ -957,6 +962,21 @@ function App() {
           </Route>
           <Route path="/checkout">
             <CheckoutComponent cartProducts={cartProducts} setCartProducts={setCartProducts}/>
+          </Route>
+          <Route  path="/recipe/step0">
+             <RecipeComponent0></RecipeComponent0>
+          </Route>
+          <Route  path="/recipe/step1">
+             <RecipeComponent1></RecipeComponent1>
+          </Route>
+          <Route  path="/recipe/step2">
+             <RecipeComponent2></RecipeComponent2>
+          </Route>
+          <Route  path="/recipe/step3">
+             <RecipeComponent3></RecipeComponent3>
+          </Route>
+          <Route  path="/recipe/step4">
+             <RecipeComponent4></RecipeComponent4>
           </Route>
         </Switch>
       </Router>

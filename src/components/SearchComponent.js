@@ -17,11 +17,11 @@ const SearchComponent = ({
           </div>
         </div>
         <div className="row gy-5">
-          <div className="col-lg-9 col-md-6 col-sm-3 ">
+          <div className="col-lg-9 col-md-9 col-sm-3 ">
             <div className="row gy-5">
               {filteredProducts.length === 0 ? (
                 <p className="no-results">
-                  Sorry Geek, No matching Product found.
+                  Sorry, No matching Product found.
                 </p>
               ) : (
                 filteredProducts.map((product) => (
@@ -30,7 +30,7 @@ const SearchComponent = ({
                     <div
                       className="card"
                       style={{
-                        width: "18rem",
+                        width: "15rem",
                         boxShadow: "10px 10px 10px black",
                       }}
                     >
