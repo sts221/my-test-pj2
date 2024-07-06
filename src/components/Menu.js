@@ -45,9 +45,8 @@ const Menu = ({ handleSearchedProduct }) => {
         style={{ backgroundColor: "#e3f2fd" }}
       >
         <div className="container-fluid fs-5">
-          <a className="navbar-brand" href="#" >
-         
-          Little Euro Bakery
+          <a className="navbar-brand" href="/">
+            Little Euro Bakery
           </a>
           <button
             className="navbar-toggler"
@@ -336,7 +335,6 @@ const Menu = ({ handleSearchedProduct }) => {
                       </li>
                     </ul>
                   </li>
-
                 </ul>
               </li>
               {/* Location */}
