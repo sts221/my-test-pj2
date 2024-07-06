@@ -339,7 +339,7 @@ const Menu = ({ handleSearchedProduct }) => {
               </li>
               {/* Location */}
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/#/">
                   {" "}
                   Location{" "}
                 </a>
@@ -364,14 +364,14 @@ const Menu = ({ handleSearchedProduct }) => {
               </li>
               {/* Reviews */}
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/#/">
                   {" "}
                   Reviews{" "}
                 </a>
               </li>
               {/* Contact us */}
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/#/">
                   {" "}
                   Contact us{" "}
                 </a>
