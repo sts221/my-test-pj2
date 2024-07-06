@@ -46,6 +46,7 @@ const Menu = ({ handleSearchedProduct }) => {
       >
         <div className="container-fluid fs-5">
           <a className="navbar-brand" href="#" >
+         
           Little Euro Bakery
           </a>
           <button

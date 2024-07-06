@@ -1,3 +1,4 @@
+import ProdPdf from './Our_Products.pdf';
 const HomeComponent = () => {
   return (
     <>
@@ -94,7 +95,7 @@ const HomeComponent = () => {
                 </div>
                 <div className="row py-4 px-3 mx-1" style={{textAlign:"center"}}>
                   <h5>Do you want to know more about our products?  </h5>
-                  <h5>Please read detailed descriptions <a href="www.wikipedia.com">here</a>
+                  <h5>Please read detailed descriptions <a href = {ProdPdf} target = "_blank">here</a>
                   </h5>
                 </div>
               </div>
