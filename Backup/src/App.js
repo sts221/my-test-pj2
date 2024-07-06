@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { HashRouter, Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import Menu from "./components/Menu";
 import HomeComponent from "./components/HomeComponent";
 import SearchComponent from "./components/SearchComponent";
@@ -944,7 +943,7 @@ function App() {
 
   return (
     <div className="container">
-      <HashRouter>
+      <Router>
         <Menu handleSearchedProduct={handleSearchedProduct} />
         <Switch>
           <Route exact path="/">
@@ -988,7 +987,7 @@ function App() {
             <AboutUsComponent />
           </Route>
         </Switch>
-      </HashRouter>
+      </Router>
     </div>
   );
 }
