@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/my-test-pj2/static/css/main.8d1109c3.css",
-    "main.js": "/my-test-pj2/static/js/main.8e76e96f.js",
+    "main.js": "/my-test-pj2/static/js/main.9a60fca8.js",
     "static/js/453.35e3d45e.chunk.js": "/my-test-pj2/static/js/453.35e3d45e.chunk.js",
-    "static/media/Home9.jpg": "/my-test-pj2/static/media/Home9.dbb7fb15f484f976dcb1.jpg",
     "static/media/BriocheChocolate.jpg": "/my-test-pj2/static/media/BriocheChocolate.5ed48b6f8fb6f513eaab.jpg",
     "static/media/MuffinChocolate.jpg": "/my-test-pj2/static/media/MuffinChocolate.023c099033bfabda7346.jpg",
     "static/media/home10.jpg": "/my-test-pj2/static/media/home10.d97342e3d91ada2b4e97.jpg",
-    "static/media/Home11.jpg": "/my-test-pj2/static/media/Home11.8bd0555f0366e6824c4d.jpg",
     "static/media/MuffinBlueberry.jpg": "/my-test-pj2/static/media/MuffinBlueberry.02fbb80e9487303f2ca6.jpg",
     "static/media/OatsBaguette.jpg": "/my-test-pj2/static/media/OatsBaguette.dc7783c427210daf737d.jpg",
-    "static/media/Home12.jpg": "/my-test-pj2/static/media/Home12.fcb43c96c651bd9e7391.jpg",
     "static/media/WholeWheatSourdough.jpg": "/my-test-pj2/static/media/WholeWheatSourdough.8eb9629f7deb4d807a1c.jpg",
     "static/media/Chocolate_Buttercream.jpeg": "/my-test-pj2/static/media/Chocolate_Buttercream.6705d06a9acdb2fa6644.jpeg",
     "static/media/Berries_Mousse.jpg": "/my-test-pj2/static/media/Berries_Mousse.e1918d4cc3a9bdaa2c6a.jpg",
     "static/media/Berries_CheeseCake.jpeg": "/my-test-pj2/static/media/Berries_CheeseCake.0a29d0933381a35d971b.jpeg",
     "static/media/Chocolate_Mousse.jpg": "/my-test-pj2/static/media/Chocolate_Mousse.70fdc9e059776819863e.jpg",
     "static/media/Chocolate_CheeseCake.jpg": "/my-test-pj2/static/media/Chocolate_CheeseCake.0609104dc38f3e2a60e4.jpg",
+    "static/media/Home11.jpg": "/my-test-pj2/static/media/Home11.039e432ec6992067a541.jpg",
+    "static/media/Home9.jpg": "/my-test-pj2/static/media/Home9.e574433171c8d297a8ae.jpg",
+    "static/media/Home12.jpg": "/my-test-pj2/static/media/Home12.f05c3cd01f8853a005b1.jpg",
     "static/media/WhiteSourdough.jpg": "/my-test-pj2/static/media/WhiteSourdough.dd00e70de6a4c3b41806.jpg",
     "static/media/TurnoverBlueberry.jpg": "/my-test-pj2/static/media/TurnoverBlueberry.352d9fdd275d76de6396.jpg",
     "static/media/BriochePlain.jpg": "/my-test-pj2/static/media/BriochePlain.a4a1106a70c825fd8a14.jpg",
@@ -78,11 +78,11 @@
     "static/media/GraduationVanilla.jpg": "/my-test-pj2/static/media/GraduationVanilla.155d97cccf8c2d94b2c8.jpg",
     "index.html": "/my-test-pj2/index.html",
     "main.8d1109c3.css.map": "/my-test-pj2/static/css/main.8d1109c3.css.map",
-    "main.8e76e96f.js.map": "/my-test-pj2/static/js/main.8e76e96f.js.map",
+    "main.9a60fca8.js.map": "/my-test-pj2/static/js/main.9a60fca8.js.map",
     "453.35e3d45e.chunk.js.map": "/my-test-pj2/static/js/453.35e3d45e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8d1109c3.css",
-    "static/js/main.8e76e96f.js"
+    "static/js/main.9a60fca8.js"
   ]
 }
