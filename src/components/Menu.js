@@ -45,9 +45,15 @@ const Menu = ({ handleSearchedProduct }) => {
         style={{ backgroundColor: "#e3f2fd" }}
       >
         <div className="container-fluid fs-5">
-          <a className="navbar-brand" href="/">
+          {/* <a className="navbar-brand" href="/">
             Little Euro Bakery
-          </a>
+          </a> */}
+          <img
+            src={require("./images/logo.png")}
+            className="img-thumbnail img-fluid"
+            alt="Little Euro Bakery"
+            style={{ width: "50px" }}
+          />
           <button
             className="navbar-toggler"
             type="button"
@@ -339,9 +345,12 @@ const Menu = ({ handleSearchedProduct }) => {
               </li>
               {/* Location */}
               <li className="nav-item">
-                <a className="nav-link" href="/#/">
-                  {" "}
-                  Location{" "}
+                <a
+                  className="nav-link disabled"
+                  aria-disabled="true"
+                  href="/#/"
+                >
+                  Location(not ready)
                 </a>
               </li>
               {/* Recipe of the month */}
@@ -364,14 +373,22 @@ const Menu = ({ handleSearchedProduct }) => {
               </li>
               {/* Reviews */}
               <li className="nav-item">
-                <a className="nav-link" href="/#/">
+                <a
+                  className="nav-link disabled"
+                  aria-disabled="true"
+                  href="/#/"
+                >
                   {" "}
                   Reviews{" "}
                 </a>
               </li>
               {/* Contact us */}
               <li className="nav-item">
-                <a className="nav-link" href="/#/">
+                <a
+                  className="nav-link disabled"
+                  aria-disabled="true"
+                  href="/#/"
+                >
                   {" "}
                   Contact us{" "}
                 </a>
