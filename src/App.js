@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Menu from "./components/Menu";
 import HomeComponent from "./components/HomeComponent";
