@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 
-const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) => {
-
+const Menu = ({
+  handleSearchedProduct,
+  totalItems,
+  handleChangeLanguage,
+  t,
+}) => {
   document.addEventListener("DOMContentLoaded", function () {
     // make it as accordion for smaller screens
     if (window.innerWidth < 992) {
@@ -38,19 +42,22 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
     // end if innerWidth
   });
   // DOMContentLoaded  end
-  
-  
+
   const handleClickLang = (e) => {
     // console.log(e.target.id);
     switch (e.target.id) {
-      case ("en"):
-        document.getElementById("en").className="btn btn-success btn-light lang active";
-        document.getElementById("it").className="btn btn-success btn-light lang";
+      case "en":
+        document.getElementById("en").className =
+          "btn btn-success btn-light lang active";
+        document.getElementById("it").className =
+          "btn btn-success btn-light lang";
         handleChangeLanguage("en");
         break;
-      case ("it"):
-        document.getElementById("it").className="btn btn-success btn-light lang active";
-        document.getElementById("en").className="btn btn-success btn-light lang";
+      case "it":
+        document.getElementById("it").className =
+          "btn btn-success btn-light lang active";
+        document.getElementById("en").className =
+          "btn btn-success btn-light lang";
         handleChangeLanguage("it");
         break;
     }
@@ -119,43 +126,25 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("Cheese Cake")}
                         >
-                          Cheese Cake
+                          {t("Cheese Cake")}
                         </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
-                          Buttercream Cake &raquo;{" "}
-                        </a>
-                        <ul className="submenu dropdown-menu fs-5">
-                          <li>
-                            <Link
-                              className="dropdown-item"
-                              to="/search"
-                              onClick={() =>
-                                handleSearchedProduct("Buttercream Cake")
-                              }
-                            >
-                              Buttercream 1
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              className="dropdown-item"
-                              to="/search"
-                              onClick={() =>
-                                handleSearchedProduct("Buttercream Cake")
-                              }
-                            >
-                              Buttercream 2
-                            </Link>
-                          </li>
-                        </ul>
+                        <Link
+                          className="dropdown-item"
+                          to="/search"
+                          onClick={() =>
+                            handleSearchedProduct("Buttercream Cake")
+                          }
+                        >
+                          {t("Buttercream Cake")}
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                    {t("Pastries")} &raquo;
+                      {t("Pastries")} &raquo;
                     </a>
                     <ul className="submenu dropdown-menu fs-5">
                       <li>
@@ -164,7 +153,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("Croissant")}
                         >
-                          Croissants
+                          {t("Croissants")}
                         </Link>
                       </li>
                       <li>
@@ -173,33 +162,17 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("Turnover")}
                         >
-                          Turnovers
+                          {t("Turnovers")}
                         </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
-                          Brioches &raquo;
-                        </a>
-                        <ul className="submenu dropdown-menu fs-5">
-                          <li>
-                            <Link
-                              className="dropdown-item"
-                              to="/search"
-                              onClick={() => handleSearchedProduct("Brioche")}
-                            >
-                              Brioche 1
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              className="dropdown-item"
-                              to="/search"
-                              onClick={() => handleSearchedProduct("Brioche")}
-                            >
-                              Brioches 2
-                            </Link>
-                          </li>
-                        </ul>
+                        <Link
+                          className="dropdown-item"
+                          to="/search"
+                          onClick={() => handleSearchedProduct("Brioche")}
+                        >
+                          Brioches
+                        </Link>
                       </li>
                       <li>
                         <Link
@@ -214,7 +187,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                    {t("Tarts")} &raquo;{" "}
+                      {t("Tarts")} &raquo;{" "}
                     </a>
                     <ul className="submenu dropdown-menu fs-5">
                       <li>
@@ -223,7 +196,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("TartsSweet")}
                         >
-                          Sweets
+                          {t("Sweets")}
                         </Link>
                       </li>
                       <li>
@@ -232,7 +205,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("TartsSavory")}
                         >
-                          Savory
+                          {t("Savory")}
                         </Link>
                       </li>
                     </ul>
@@ -251,7 +224,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("Weddings")}
                         >
-                          Weddings
+                          {t("Weddings")}
                         </Link>
                       </li>
                       <li>
@@ -260,7 +233,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("Birthdays")}
                         >
-                          Birthdays
+                          {t("Birthdays")}
                         </Link>
                       </li>
                       <li>
@@ -269,7 +242,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("Graduations")}
                         >
-                          Graduations
+                          {t("Graduations")}
                         </Link>
                       </li>
                     </ul>
@@ -288,7 +261,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("GlutenFree")}
                         >
-                          Gluten free
+                          {t("Gluten free")}
                         </Link>
                       </li>
                       <li>
@@ -297,7 +270,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("SugarFree")}
                         >
-                          Sugar free
+                          {t("Sugar free")}
                         </Link>
                       </li>
                       <li>
@@ -306,18 +279,18 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("Vegan")}
                         >
-                          Vegan
+                          {t("Vegan")}
                         </Link>
                       </li>
                       <li>
                         <Link
                           className="dropdown-item"
-                          to="/search"
+                          to="/advancedSearch"
                           onClick={() =>
                             handleSearchedProduct("NoRestrictions")
                           }
                         >
-                          No restrictions
+                          {t("No restrictions")}
                         </Link>
                       </li>
                     </ul>
@@ -336,7 +309,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("Baguette")}
                         >
-                          Baguette
+                          {t("Baguette")}
                         </Link>
                       </li>
                       <li>
@@ -345,7 +318,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("Sourdough")}
                         >
-                          Sourdough
+                          {t("Sourdough")}
                         </Link>
                       </li>
                       <li>
@@ -354,7 +327,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                           to="/search"
                           onClick={() => handleSearchedProduct("Loaf")}
                         >
-                          Loaf
+                          {t("Loaf")}
                         </Link>
                       </li>
                     </ul>
@@ -393,7 +366,7 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                   aria-disabled="true"
                   href="/#/"
                 >
-                 {t("Reviews")}
+                  {t("Reviews")}
                 </a>
               </li>
               {/* Contact us */}
@@ -431,25 +404,28 @@ const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) =>
                   </span>
                 </Link>
               </li>
-              
             </ul>
 
             {/* <ul className="navbar-nav ms-auto">
                 </ul> */}
           </div>
-          <button 
-            type="button" 
+          <button
+            type="button"
             id="en"
-            className="btn btn-success btn-light lang" 
-            style={{marginRight:"5px"}}
+            className="btn btn-success btn-light lang"
+            style={{ marginRight: "5px" }}
             onClick={handleClickLang}
-          >EN</button>
-          <button 
-            type="button" 
+          >
+            EN
+          </button>
+          <button
+            type="button"
             id="it"
             className="btn btn-success btn-light lang"
             onClick={handleClickLang}
-            >IT</button>
+          >
+            IT
+          </button>
           {/* <form className="d-flex" role="search">
             <input
               className="form-control me-2"

@@ -1186,12 +1186,6 @@ function App() {
     i18n.changeLanguage(lang);
   };
 
-  const handleSearchedProduct1 = (searchedProduct) => {
-    setSearchedProduct(searchedProduct);
-    //console.log(searchedProduct);
-  };
-
-
   return (
     <div className="container">
       <HashRouter>
@@ -1203,7 +1197,7 @@ function App() {
         />
         <Switch>
           <Route exact path="/">
-            <HomeComponent />
+            <HomeComponent t={t}/>
           </Route>
           <Route path="/translate">
             <Translate />

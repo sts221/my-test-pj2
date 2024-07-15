@@ -1,5 +1,5 @@
 import ProdPdf from './Our_Products.pdf';
-const HomeComponent = () => {
+const HomeComponent = ({t}) => {
   return (
     <>
       {/* <div>
@@ -69,33 +69,33 @@ const HomeComponent = () => {
                 </button>
                 <div className="row py-4 px-3 mx-1">
                   <div className="col p-0" style={{ textAlign: "right" }}>
-                    <h5>Address:</h5>
+                    <h5>{t("Address")}:</h5>
                   </div>
                   <div className="col" style={{ textAlign: "left" }}>
-                    <h5>100 Kent Street</h5>
+                    <h5>{t("100 Kent Street")}</h5>
                     <h5>Ottawa, ON</h5>
                     <h5>K1K 2S2</h5>
                   </div>
                   <div className="col" style={{ textAlign: "right" }}>
-                    <h5>Email: </h5>
-                    <h5>Phone: </h5>
+                    <h5>{t("Email")}: </h5>
+                    <h5>{t("Phone")}: </h5>
                   </div>
                   <div className="col" style={{ textAlign: "left" }}>
                     <h5>bakery@bakery.com</h5>
                     <h5>(613) 123-4567</h5>
                   </div>
                   <div className="col" style={{ textAlign: "right" }}>
-                    <h5>Hours: </h5>
+                    <h5>{t("Hours")}: </h5>
                   </div>
                   <div className="col" style={{ textAlign: "left" }}>
-                    <h5>Mon-Fri: 9:00-17:00</h5>
-                    <h5>Sat:     9:00-14:00</h5>
-                    <h5>Sun:     closed</h5>
+                    <h5>{t("Mon-Fri")}: 9:00-17:00</h5>
+                    <h5>{t("Sat")}:     9:00-14:00</h5>
+                    <h5>{t("Sun")}:     closed</h5>
                   </div>
                 </div>
                 <div className="row py-4 px-3 mx-1" style={{textAlign:"center"}}>
-                  <h5>Do you want to know more about our products?  </h5>
-                  <h5>Please read detailed descriptions <a href = {ProdPdf} target = "_blank">here</a>
+                  <h5>{t("Do you want to know more about our products?")}  </h5>
+                  <h5>{t("Please read detailed descriptions")} <a href = {ProdPdf} target = "_blank">{t("here")}</a>
                   </h5>
                 </div>
               </div>
