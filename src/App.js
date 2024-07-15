@@ -20,6 +20,9 @@ import RecipeComponent3 from "./components/RecipeComponent3";
 import RecipeComponent4 from "./components/RecipeComponent4";
 import AboutUsComponent from "./components/AboutUsComponent";
 import AdvSearchComponent from "./components/AdvSearchComponent";
+import { useTranslation } from "react-i18next";
+import Translate from "./components/Translate";
+/* Language support */
 
 function App() {
   // const [products, setProducts] = useState([
@@ -890,6 +893,7 @@ function App() {
   const [searchedProduct, setSearchedProduct] = useState("");
   const [cartProducts, setCartProducts] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
+  const [language,setLanguage] = useState("en")
 
   // ******************* Advanced Search **************
   const [arrayProducts, setArrayProducts] = useState([]);
@@ -1151,7 +1155,7 @@ function App() {
       (item) => item.product.id !== prod.id
     );
     setCartProducts(updatedCart);
-    setTotalItems(total); 
+    setTotalItems(total);
   };
 
   const totalAmountCalculationFunction = () => {
@@ -1166,15 +1170,27 @@ function App() {
   let total = 0;
   useEffect(() => {
     //console.log("useEffect executed");
-      cartProducts.forEach((prod)=> {
+    cartProducts.forEach((prod) => {
       //console.log(prod.quantity);
       total = total + prod.quantity;
       //console.log("TOTAL ITEMS: ", total);
-      setTotalItems(total); 
+      setTotalItems(total);
     });
-  },[cartProducts]);
-  // 
-  
+  }, [cartProducts]);
+  //
+
+  // ******************* LANGUAGE *********************** //
+  const [t, i18n] = useTranslation("global");
+
+  const handleChangeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+
+  const handleSearchedProduct1 = (searchedProduct) => {
+    setSearchedProduct(searchedProduct);
+    //console.log(searchedProduct);
+  };
+
 
   return (
     <div className="container">
@@ -1182,10 +1198,15 @@ function App() {
         <Menu
           handleSearchedProduct={handleSearchedProduct}
           totalItems={totalItems}
+          handleChangeLanguage={handleChangeLanguage}
+          t={t}
         />
         <Switch>
           <Route exact path="/">
             <HomeComponent />
+          </Route>
+          <Route path="/translate">
+            <Translate />
           </Route>
           <Route path="/search">
             <SearchComponent

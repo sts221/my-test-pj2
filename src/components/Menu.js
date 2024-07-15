@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-const Menu = ({ handleSearchedProduct, totalItems }) => {
+const Menu = ({ handleSearchedProduct, totalItems, handleChangeLanguage, t }) => {
+
   document.addEventListener("DOMContentLoaded", function () {
     // make it as accordion for smaller screens
     if (window.innerWidth < 992) {
@@ -37,7 +38,23 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
     // end if innerWidth
   });
   // DOMContentLoaded  end
-
+  
+  
+  const handleClickLang = (e) => {
+    // console.log(e.target.id);
+    switch (e.target.id) {
+      case ("en"):
+        document.getElementById("en").className="btn btn-success btn-light lang active";
+        document.getElementById("it").className="btn btn-success btn-light lang";
+        handleChangeLanguage("en");
+        break;
+      case ("it"):
+        document.getElementById("it").className="btn btn-success btn-light lang active";
+        document.getElementById("en").className="btn btn-success btn-light lang";
+        handleChangeLanguage("it");
+        break;
+    }
+  };
   return (
     <div className="container imageContSearch p-1">
       <nav
@@ -68,7 +85,8 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
             <ul className="navbar-nav">
               <li className="nav-item active">
                 <Link className="nav-link" to="/">
-                  Home
+                  {/* Home */}
+                  {t("Home")}
                 </Link>
               </li>
               {/* Products */}
@@ -78,12 +96,12 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
                   href="#"
                   data-bs-toggle="dropdown"
                 >
-                  Products
+                  {t("Products")}
                 </a>
                 <ul className="dropdown-menu fs-5">
                   <li>
                     <a className="dropdown-item" href="#">
-                      Cakes &raquo;
+                      {t("Cakes")} &raquo;
                     </a>
                     <ul className="submenu dropdown-menu fs-5">
                       <li>
@@ -137,7 +155,7 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Pastries &raquo;
+                    {t("Pastries")} &raquo;
                     </a>
                     <ul className="submenu dropdown-menu fs-5">
                       <li>
@@ -196,7 +214,7 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Tarts &raquo;{" "}
+                    {t("Tarts")} &raquo;{" "}
                     </a>
                     <ul className="submenu dropdown-menu fs-5">
                       <li>
@@ -224,7 +242,7 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Special Events &raquo;
+                      {t("Special Events")} &raquo;
                     </a>
                     <ul className="submenu dropdown-menu fs-5">
                       <li>
@@ -261,7 +279,7 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Dietary Restrictions &raquo;
+                      {t("Dietary Restrictions")} &raquo;
                     </a>
                     <ul className="submenu dropdown-menu fs-5">
                       <li>
@@ -309,7 +327,7 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Breads &raquo;
+                      {t("Breads")} &raquo;
                     </a>
                     <ul className="submenu dropdown-menu fs-5">
                       <li>
@@ -350,7 +368,7 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
                   aria-disabled="true"
                   href="/#/"
                 >
-                  Location(not ready)
+                  {t("Location")}
                 </a>
               </li>
               {/* Recipe of the month */}
@@ -359,13 +377,13 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
                   Recipe of the month
                 </a> */}
                 <Link className="nav-link" to="/recipe/step0">
-                  Recipe of the month
+                  {t("Recipe of the month")}
                 </Link>
               </li>
               {/* Advanced Search*/}
               <li className="nav-item">
                 <Link className="nav-link" to="/advancedSearch">
-                  Advanced Search
+                  {t("Advanced Search")}
                 </Link>
               </li>
               {/* Reviews */}
@@ -375,8 +393,7 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
                   aria-disabled="true"
                   href="/#/"
                 >
-                  {" "}
-                  Reviews{" "}
+                 {t("Reviews")}
                 </a>
               </li>
               {/* Contact us */}
@@ -386,38 +403,53 @@ const Menu = ({ handleSearchedProduct, totalItems }) => {
                   aria-disabled="true"
                   href="/#/"
                 >
-                  {" "}
-                  Contact us{" "}
+                  {t("Contact us")}
                 </a>
               </li>
               {/* About us */}
               <li className="nav-item">
                 <Link className="nav-link" to="/aboutus">
-                  About us
+                  {t("About us")}
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/advancedSearch">                  
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="28"
-                  height="28"
-                  fill="currentColor"
-                  className="bi bi-cart-check"
-                  viewBox="0 0 16 16"
-                  style={{marginLeft:"50px"}}
-                >
-                  <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z" />
-                  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
-                </svg>
-                <span className="badge bg-primary rounded-pill">{totalItems}</span>
+                <Link className="nav-link" to="/advancedSearch">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28"
+                    height="28"
+                    fill="currentColor"
+                    className="bi bi-cart-check"
+                    viewBox="0 0 16 16"
+                    style={{ marginLeft: "3px" }}
+                  >
+                    <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z" />
+                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                  </svg>
+                  <span className="badge bg-primary rounded-pill">
+                    {totalItems}
+                  </span>
                 </Link>
-                
               </li>
+              
             </ul>
 
-            <ul className="navbar-nav ms-auto"></ul>
+            {/* <ul className="navbar-nav ms-auto">
+                </ul> */}
           </div>
+          <button 
+            type="button" 
+            id="en"
+            className="btn btn-success btn-light lang" 
+            style={{marginRight:"5px"}}
+            onClick={handleClickLang}
+          >EN</button>
+          <button 
+            type="button" 
+            id="it"
+            className="btn btn-success btn-light lang"
+            onClick={handleClickLang}
+            >IT</button>
           {/* <form className="d-flex" role="search">
             <input
               className="form-control me-2"
