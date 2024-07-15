@@ -6,19 +6,20 @@ const UserCartComponent = ({
   setCartProducts,
   deleteProductFromCartFunction,
   totalAmountCalculationFunction,
+  totalItems,
+  handleSetTotalItems
 }) => {
   const history = useHistory();
   const routeChange = () => {
     history.push("/checkout");
   };
-
   return (
     <>
       <div className="row g-5">
         <div className="col col-lg col-md col-sm order-md-last">
           <h4 className="d-flex justify-content-between align-items-center mb-3">
-            <span className="text-primary">Your cart</span>
-            <span className="badge bg-primary rounded-pill">3</span>
+            <span className="text-primary p-3">Your cart</span>
+            {/* <span className="badge bg-primary rounded-pill">3</span> */}  
           </h4>
           <ul className="list-group mb-3">
             <li className="list-group-item d-flex justify-content-between lh-sm">
@@ -59,6 +60,7 @@ const UserCartComponent = ({
                           style={{ margin: "1%" }}
                           onClick={(e) => {
                             setCartProducts((prevCartCourses) => {
+                              
                               const updatedCart = prevCartCourses.map(
                                 (prevItem) =>
                                   prevItem.product.id === item.product.id
@@ -68,6 +70,7 @@ const UserCartComponent = ({
                                       }
                                     : prevItem
                               );
+                              {console.log(updatedCart[0].quantity)}
                               return updatedCart;
                             });
                           }}

@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { HashRouter, Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  HashRouter,
+  Route,
+  Switch,
+} from "react-router-dom/cjs/react-router-dom.min";
 import Menu from "./components/Menu";
 import HomeComponent from "./components/HomeComponent";
 import SearchComponent from "./components/SearchComponent";
@@ -15,6 +19,7 @@ import RecipeComponent2 from "./components/RecipeComponent2";
 import RecipeComponent3 from "./components/RecipeComponent3";
 import RecipeComponent4 from "./components/RecipeComponent4";
 import AboutUsComponent from "./components/AboutUsComponent";
+import AdvSearchComponent from "./components/AdvSearchComponent";
 
 function App() {
   // const [products, setProducts] = useState([
@@ -281,7 +286,7 @@ function App() {
       image: "./images/TurnoverBlueberry.jpg",
     },
     {
-      id: 14,
+      id: 55,
       category: "Pastries",
       subcategory: "Turnover",
       name: "Apricot Turnover",
@@ -884,25 +889,242 @@ function App() {
 
   const [searchedProduct, setSearchedProduct] = useState("");
   const [cartProducts, setCartProducts] = useState([]);
+  const [totalItems, setTotalItems] = useState(0);
+
+  // ******************* Advanced Search **************
+  const [arrayProducts, setArrayProducts] = useState([]);
+  // let advFilterCrit = [];
+  const getAdvFilteredProd_BACKUP = (filterCriteria) => {
+    // let advResult = advFilterCrit ? products.filter(advFilterFunc) : null;
+    // console.log("Advanced search criteria: ", filterCriteria);
+    if (filterCriteria.length === 0) {
+      return products;
+    } else {
+      const filteredArray = products.filter((item) => {
+        let result = true;
+        for (let key in filterCriteria) {
+          // console.log("key:", key);
+          // console.log("item[key]: ", item[key]);
+          if (item[key] !== filterCriteria[key]) {
+            return false;
+            break;
+          }
+        }
+        return result;
+      });
+      return filteredArray;
+    }
+  };
+
+  const getAdvFilteredProd_NO_PRICE = (filterCriteria) => {
+    // let advResult = advFilterCrit ? products.filter(advFilterFunc) : null;
+    // console.log("Advanced search criteria: ", filterCriteria);
+    if (filterCriteria.length === 0) {
+      return products;
+    } else {
+      const filteredArray = products.filter((item) => {
+        let result = true;
+        for (let key in filterCriteria) {
+          // console.log("key:", key);
+          if (key === "ingred") {
+            for (let ingredientX in item.ingred) {
+              result = false;
+              // console.log(item.ingred[ingredientX]);
+              if (item.ingred[ingredientX] === filterCriteria[key]) {
+                result = true;
+                // console.log(item.ingred[ingredientX]);
+              }
+              if (result === true) {
+                break;
+              }
+            }
+          } else {
+            // console.log("item[key]: ", item[key]);
+            if (item[key] !== filterCriteria[key]) {
+              result = false;
+              break;
+            }
+          }
+        }
+        return result;
+      });
+      // console.log("FINAL:", filteredArray);
+      return filteredArray;
+    }
+  };
+
+  const getAdvFilteredProd_SWITCH = (filterCriteria) => {
+    // let advResult = advFilterCrit ? products.filter(advFilterFunc) : null;
+    //console.log("Advanced search criteria: ", filterCriteria);
+    if (filterCriteria.length === 0) {
+      return products;
+    } else {
+      const filteredArray = products.filter((item) => {
+        let result = true;
+        for (let key in filterCriteria) {
+          //console.log("key:", key);
+          switch (key) {
+            case "category":
+              if (item[key] !== filterCriteria[key]) {
+                result = false;
+                break;
+              }
+              break;
+            case "subcategory":
+              if (item[key] !== filterCriteria[key]) {
+                result = false;
+                break;
+              }
+              break;
+            case "ingred":
+              for (let ingredientX in item.ingred) {
+                result = false;
+                // console.log(item.ingred[ingredientX]);
+                if (item.ingred[ingredientX] === filterCriteria[key]) {
+                  result = true;
+                  //console.log(item.ingred[ingredientX]);
+                }
+                if (result === true) {
+                  break;
+                }
+              }
+              break;
+            case "price":
+              if (filterCriteria[key] === ">30") {
+                if (item[key] < 30) {
+                  result = false;
+                  break;
+                }
+              }
+              if (filterCriteria[key] === "<30") {
+                if (item[key] > 30) {
+                  result = false;
+                  break;
+                }
+              }
+              if (filterCriteria[key] === "<15") {
+                if (item[key] > 15) {
+                  result = false;
+                  break;
+                }
+              }
+              if (filterCriteria[key] === "<5") {
+                if (item[key] > 5) {
+                  result = false;
+                  break;
+                }
+              }
+              break;
+            // default:
+            //   if (item[key] !== filterCriteria[key]) {
+            //     result = false;
+            //     break;
+            //   }
+          }
+        }
+        return result;
+      });
+      //console.log("FINAL:", filteredArray);
+      return filteredArray;
+    }
+  };
+
+  const getAdvFilteredProd = (filterCriteria) => {
+    // let advResult = advFilterCrit ? products.filter(advFilterFunc) : null;
+    // console.log("Advanced search criteria: ", filterCriteria);
+    if (filterCriteria.length === 0) {
+      return products;
+    } else {
+      const filteredArray = products.filter((item) => {
+        let result = true;
+        for (let key in filterCriteria) {
+          // console.log("key:", key);
+          if (key === "ingred") {
+            for (let ingredientX in item.ingred) {
+              result = false;
+              // console.log(item.ingred[ingredientX]);
+              if (item.ingred[ingredientX] === filterCriteria[key]) {
+                result = true;
+                //console.log(item.ingred[ingredientX]);
+              }
+              if (result === true) {
+                break;
+              }
+            }
+          } else {
+            // console.log("item[key]: ", item[key]);
+            if (key === "price") {
+              // Check for > 30
+              if (filterCriteria[key] === ">30") {
+                if (item[key] < 30) {
+                  result = false;
+                  break;
+                }
+              }
+              // Check for < 30
+              if (filterCriteria[key] === "<30") {
+                if (item[key] > 30) {
+                  result = false;
+                  break;
+                }
+              }
+              // Check for < 15
+              if (filterCriteria[key] === "<15") {
+                if (item[key] > 15) {
+                  result = false;
+                  break;
+                }
+              }
+              //Check for < 5
+              if (filterCriteria[key] === "<5") {
+                if (item[key] > 5) {
+                  result = false;
+                  break;
+                }
+              }
+            } else {
+              // IF key is not price
+              if (item[key] !== filterCriteria[key]) {
+                result = false;
+                break;
+              }
+            }
+
+            // if (item[key] !== filterCriteria[key]) {
+            //   result = false;
+            //   break;
+            // }
+          }
+        }
+        return result;
+      });
+      // console.log("FINAL:", filteredArray);
+      return filteredArray;
+    }
+  };
+
+  // ********** end advanced search ******************
 
   // searchedProduct is the currently searched product in the menu
   const handleSearchedProduct = (searchedProduct) => {
     setSearchedProduct(searchedProduct);
-    console.log(searchedProduct);
+    //console.log(searchedProduct);
   };
 
   // ************ SearchComponent ************************//
   const getFilteredProducts = (searchedProduct) => {
     let result = searchedProduct ? products.filter(func) : null;
-    console.log(searchedProduct, "  RESULT: ", result);
+    // console.log(searchedProduct, "  RESULT: ", result);
     return result;
   };
+
   const func = (prod) => {
     // console.log(prod);
     // return prod.category === searchedProduct;
     return prod.subcategory === searchedProduct;
   };
 
+  // ***************** CART Functions *********************
   const addProductToCartFunction = (prod) => {
     const alreadyProducts = cartProducts.find(
       (item) => item.product.id === prod.id
@@ -917,8 +1139,10 @@ function App() {
           : item
       );
       setCartProducts(latestCartUpdate);
+      //setTotalItems(cartProducts[0].quantity+1);
     } else {
       setCartProducts([...cartProducts, { product: prod, quantity: 1 }]);
+      //console.log("ADD PROD:", cartProducts);
     }
   };
 
@@ -927,6 +1151,7 @@ function App() {
       (item) => item.product.id !== prod.id
     );
     setCartProducts(updatedCart);
+    setTotalItems(total); 
   };
 
   const totalAmountCalculationFunction = () => {
@@ -935,17 +1160,29 @@ function App() {
       0
     );
   };
+
   // ************* End of Search Component ***************** //
   // Executes after each render
+  let total = 0;
   useEffect(() => {
-    console.log("useEffect executed");
-    console.log("CART: ", cartProducts);
-  });
+    //console.log("useEffect executed");
+      cartProducts.forEach((prod)=> {
+      //console.log(prod.quantity);
+      total = total + prod.quantity;
+      //console.log("TOTAL ITEMS: ", total);
+      setTotalItems(total); 
+    });
+  },[cartProducts]);
+  // 
+  
 
   return (
     <div className="container">
       <HashRouter>
-        <Menu handleSearchedProduct={handleSearchedProduct} />
+        <Menu
+          handleSearchedProduct={handleSearchedProduct}
+          totalItems={totalItems}
+        />
         <Switch>
           <Route exact path="/">
             <HomeComponent />
@@ -961,12 +1198,22 @@ function App() {
             />
           </Route>
           <Route path="/advancedSearch">
-            <AdvancedSearchComponent />
+            <AdvSearchComponent
+              filteredProducts={products}
+              advFilteredCriteria={getAdvFilteredProd}
+              addProductToCartFunction={addProductToCartFunction}
+              cartProducts={cartProducts}
+              setCartProducts={setCartProducts}
+              deleteProductFromCartFunction={deleteProductFromCartFunction}
+              totalAmountCalculationFunction={totalAmountCalculationFunction}
+            />
           </Route>
           <Route path="/checkout">
             <CheckoutComponent
               cartProducts={cartProducts}
               setCartProducts={setCartProducts}
+              totalItems={totalItems}
+              setTotalItems={setTotalItems}
             />
           </Route>
           <Route path="/recipe/step0">

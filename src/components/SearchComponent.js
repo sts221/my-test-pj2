@@ -1,4 +1,6 @@
 import UserCartComponent from "./UserCartComponent";
+import { useState } from "react";
+
 const SearchComponent = ({
   filteredProducts,
   addProductToCartFunction,
@@ -7,16 +9,17 @@ const SearchComponent = ({
   deleteProductFromCartFunction,
   totalAmountCalculationFunction,
 }) => {
-  console.log("SEARCHCOMPONENT: ", { filteredProducts });
+  // console.log("SEARCHCOMPONENT: ", { filteredProducts });
+  // console.log("totalItems:", {totalItems});
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="col">
-            <h2>Title</h2>
+            <h3>Search results</h3>
           </div>
         </div>
-        <div className="row gy-5">
+        <div className="row gy-5" style={{width:"100%"}}>
           <div className="col-lg-9 col-md-9 col-sm-3 ">
             <div className="row gy-5">
               {filteredProducts.length === 0 ? (
@@ -30,26 +33,31 @@ const SearchComponent = ({
                     <div
                       className="card"
                       style={{
-                        width: "15rem",
+                        width: "290px",
                         boxShadow: "10px 10px 10px black",
+                        borderRadius:"10px"
                       }}
                     >
+                      <div className="p-1 imageContSearch" style={{height:"280px"}}>
                       <img
                         src={require(`${product.image}`)}
-                        className="card-img-top"
+                        className="card-img-top searchImg"
                         alt={product.name}
                       />
+                      </div>
                       <div className="card-body">
                         <h5 className="card-title">{product.category}</h5>
                         <p className="card-text">{product.name}</p>
                       </div>
                       <ul className="list-group list-group-flush">
+                        <div  >
                         <li key={product.id} className="list-group-item">
-                          {product.price}
+                          Price: {product.price} CAD
                         </li>
+                        </div>
                       </ul>
                       <button
-                        className="btn btn-primary"
+                        className="btn btn-primary m-2"
                         onClick={() => addProductToCartFunction(product)}
                       >
                         Add to Shopping Cart
@@ -60,7 +68,7 @@ const SearchComponent = ({
               )}
             </div>
           </div>
-          <div className="col-lg-3 col-sm-5 p-3" style={{border:"1px solid", boxShadow:"black 10px 10px 10px"}}>
+          <div className="col-lg-3 col-sm-5 p-1 imageContSearch" style={{border:"1px solid", boxShadow:"black 10px 10px 10px"}}>
             <UserCartComponent
               cartProducts={cartProducts}
               setCartProducts={setCartProducts}

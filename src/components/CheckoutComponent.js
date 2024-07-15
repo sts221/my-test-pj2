@@ -6,7 +6,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // import "./checkoutComponent.css";
 
-const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
+const CheckoutComponent = ({
+  cartProducts,
+  setCartProducts,
+  totalItems,
+  setTotalItems,
+}) => {
   const [startDate, setStartDate] = useState(new Date());
   let handleColor = (time) => {
     return time.getHours() > 12 ? "text-success" : "text-error";
@@ -15,20 +20,46 @@ const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
   const history = useHistory();
   const routeChange = () => {
     setCartProducts([]);
+    setTotalItems(0);
     {
-      alert("Confirmation number: 123456789");
+      validate()
+        ? alert("Confirmation number: 1234567")
+        : alert("not validated");
     }
+    // {
+    //   alert("Confirmation number: 123456789");
+    // }
     history.push("/");
   };
 
-  const handleChangeValue = (e) => {
-    console.log(e.target);
+  const validate = () => {
+    let firstName = document.getElementById("");
+    return true;
   };
+  const handleChangeValue = (e) => {
+    //console.log(e);
+  };
+
+  const handleChangeValuePay = (e) => {
+    let debitCredit = document.getElementById("debit_credit");
+    switch (e.target.id) {
+      case "paypal":
+        debitCredit.className = "d-none";
+        break;
+      case "credit":
+        debitCredit.className = "d-block";
+        break;
+      case "debit":
+        debitCredit.className = "d-block";
+        break;
+    }
+  };
+
   return (
     <>
       <div className="container">
         <main>
-          <div className="row rowCheckOut" style={{ paddingLeft: "20px"}}>
+          <div className="row rowCheckOut" style={{ paddingLeft: "20px" }}>
             {cartProducts.map((item, i) => (
               <div
                 key={i}
@@ -56,7 +87,7 @@ const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
           {/* <div className="advChekout"> */}
           {/* <div className="col-md-7 col-lg-8"> */}
           <div className="col-md col-lg p-3">
-            <form className="needs-validation" noValidate>
+            <form className="was-validated" onSubmit={routeChange}>
               <div className="row g-3 advCheckout">
                 <h4 className="fw-bold">Billing address</h4>
                 <div className="col-sm-6">
@@ -69,9 +100,10 @@ const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
                     id="firstName"
                     placeholder=""
                     required
-                    onChange={() => {
-                      handleChangeValue();
-                    }}
+                    // onChange={() => {
+                    //   handleChangeValue();
+                    // }}
+                    // onChange={handleChangeValue}
                   />
                   <div className="invalid-feedback">
                     Valid first name is required.
@@ -196,11 +228,7 @@ const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
                       name="paymentMethod"
                       type="radio"
                       className="form-check-input"
-                      checked
-                      required
-                      onChange={() => {
-                        handleChangeValue();
-                      }}
+                      onChange={handleChangeValuePay}
                     />
                     <label className="form-check-label" htmlFor="credit">
                       Credit card
@@ -212,10 +240,7 @@ const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
                       name="paymentMethod"
                       type="radio"
                       className="form-check-input"
-                      required
-                      onChange={() => {
-                        handleChangeValue();
-                      }}
+                      onChange={handleChangeValuePay}
                     />
                     <label className="form-check-label" htmlFor="debit">
                       Debit card
@@ -227,10 +252,8 @@ const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
                       name="paymentMethod"
                       type="radio"
                       className="form-check-input"
-                      required
-                      onChange={() => {
-                        handleChangeValue();
-                      }}
+                      // required
+                      onChange={handleChangeValuePay}
                     />
                     <label className="form-check-label" htmlFor="paypal">
                       PayPal
@@ -238,7 +261,7 @@ const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
                   </div>
                 </div>
 
-                <div className="row gy-3">
+                <div id="debit_credit" className="row gy-3">
                   <div className="col-md-6">
                     <label htmlFor="cc-name" className="form-label">
                       Name on card
@@ -322,11 +345,10 @@ const CheckoutComponent = ({ cartProducts, setCartProducts }) => {
               <hr className="my-4" />
 
               <button
-                type="button"
                 className="w-100 btn btn-primary btn-lg"
-                // type="submit"
+                type="submit"
                 // onClick={displayConfirmation}
-                onClick={routeChange}
+                // onClick={routeChange}
               >
                 Continue to checkout
               </button>
