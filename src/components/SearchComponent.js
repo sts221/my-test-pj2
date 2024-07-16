@@ -20,7 +20,7 @@ const SearchComponent = ({
           </div>
         </div>
         <div className="row gy-5" style={{width:"100%"}}>
-          <div className="col-lg-9 col-md-9 col-sm-3 ">
+          <div className="col-lg-9 col-md-6 col-sm-3 ">
             <div className="row gy-5">
               {filteredProducts.length === 0 ? (
                 <p className="no-results">
@@ -29,7 +29,8 @@ const SearchComponent = ({
               ) : (
                 filteredProducts.map((product) => (
                   // <div key={product.id} className="col-sm col-mb-6 col-lg-4 mb-3 mb-sm-0">
-                  <div key={product.id} className="col-sm-auto col-mb-auto col-lg-auto">
+                  // <div key={product.id} className="col-sm-auto col-mb-auto col-lg-auto">
+                  <div key={product.id} className="col">
                     <div
                       className="card"
                       style={{

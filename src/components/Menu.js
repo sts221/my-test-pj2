@@ -336,13 +336,9 @@ const Menu = ({
               </li>
               {/* Location */}
               <li className="nav-item">
-                <a
-                  className="nav-link disabled"
-                  aria-disabled="true"
-                  href="/#/"
-                >
+              <Link className="nav-link" to="/location">
                   {t("Location")}
-                </a>
+              </Link>
               </li>
               {/* Recipe of the month */}
               <li className="nav-item">
@@ -371,13 +367,9 @@ const Menu = ({
               </li>
               {/* Contact us */}
               <li className="nav-item">
-                <a
-                  className="nav-link disabled"
-                  aria-disabled="true"
-                  href="/#/"
-                >
-                  {t("Contact us")}
-                </a>
+                <Link className="nav-link" to="/contactUs">
+                {t("Contact us")}
+                </Link>
               </li>
               {/* About us */}
               <li className="nav-item">

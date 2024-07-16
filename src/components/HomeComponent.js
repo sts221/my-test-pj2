@@ -72,8 +72,8 @@ const HomeComponent = ({t}) => {
                     <h5>{t("Address")}:</h5>
                   </div>
                   <div className="col" style={{ textAlign: "left" }}>
-                    <h5>{t("100 Kent Street")}</h5>
-                    <h5>Ottawa, ON</h5>
+                    <h5>{t("100 Constellation Drive")}</h5>
+                    <h5>Nepean, ON</h5>
                     <h5>K1K 2S2</h5>
                   </div>
                   <div className="col" style={{ textAlign: "right" }}>

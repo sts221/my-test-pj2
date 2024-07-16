@@ -22,6 +22,8 @@ import AboutUsComponent from "./components/AboutUsComponent";
 import AdvSearchComponent from "./components/AdvSearchComponent";
 import { useTranslation } from "react-i18next";
 import Translate from "./components/Translate";
+import ContactUsComponent from "./components/ContactUsComponent";
+import LocationComponent from "./components/LocationComponent";
 /* Language support */
 
 function App() {
@@ -1199,8 +1201,11 @@ function App() {
           <Route exact path="/">
             <HomeComponent t={t}/>
           </Route>
-          <Route path="/translate">
-            <Translate />
+          <Route path="/contactUs">
+            <ContactUsComponent />
+          </Route>
+          <Route path="/location">
+            <LocationComponent />
           </Route>
           <Route path="/search">
             <SearchComponent
