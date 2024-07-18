@@ -78,6 +78,10 @@ const Menu = ({
             alt="Little Euro Bakery"
             style={{ width: "50px" }}
           />
+          <div className="fs-5" style={{color:"#007FFF"}}>
+          Little-Euro Bakery
+          </div>
+          
           <button
             className="navbar-toggler"
             type="button"
@@ -356,7 +360,7 @@ const Menu = ({
                 </Link>
               </li>
               {/* Reviews */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a
                   className="nav-link disabled"
                   aria-disabled="true"
@@ -364,7 +368,7 @@ const Menu = ({
                 >
                   {t("Reviews")}
                 </a>
-              </li>
+              </li> */}
               {/* Contact us */}
               <li className="nav-item">
                 <Link className="nav-link" to="/contactUs">

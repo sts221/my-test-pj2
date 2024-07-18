@@ -21,7 +21,6 @@ import RecipeComponent4 from "./components/RecipeComponent4";
 import AboutUsComponent from "./components/AboutUsComponent";
 import AdvSearchComponent from "./components/AdvSearchComponent";
 import { useTranslation } from "react-i18next";
-import Translate from "./components/Translate";
 import ContactUsComponent from "./components/ContactUsComponent";
 import LocationComponent from "./components/LocationComponent";
 /* Language support */
