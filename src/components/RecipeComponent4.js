@@ -61,7 +61,7 @@ const RecipeComponent3 = () => {
       </div> */}
     </div>
     <div className="row">
-      <h6>Footer</h6>
+      {/* <h6>Footer</h6> */}
     </div>
   </div>
 
