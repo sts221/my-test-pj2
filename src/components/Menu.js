@@ -79,7 +79,7 @@ const Menu = ({
             style={{ width: "50px" }}
           />
           <div className="fs-5" style={{color:"#007FFF"}}>
-          Little-Euro Bakery
+          {t("Little-Euro Bakery")}
           </div>
           
           <button
