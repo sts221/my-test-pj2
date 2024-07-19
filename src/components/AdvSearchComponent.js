@@ -118,7 +118,7 @@ const AdvSearchComponent = ({
 
   return (
     <>
-      <div className="container imageContSearch px-3 my-3">
+      <div className="container advCheckout  px-3 my-3">
         <h3>Advanced search</h3>
         {/* CATEGORY */}
         <div className="row searchCriteria">

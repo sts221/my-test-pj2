@@ -15,8 +15,8 @@ const UserCartComponent = ({
   };
   return (
     <>
-      <div className="row g-5">
-        <div className="col col-lg col-md col-sm order-md-last">
+      <div className="row g-5 my-3">
+        <div className="col col-lg col-md col-sm order-md-last ">
           <h4 className="d-flex justify-content-between align-items-center mb-3">
             <span className="text-primary p-3">Your cart</span>
             {/* <span className="badge bg-primary rounded-pill">3</span> */}  
@@ -132,7 +132,7 @@ const UserCartComponent = ({
         </form> */}
         </div>
       </div>
-      <div className="col p-3">
+      <div className="advCheckout col p-3">
         <button
           className="checkout-button"
           disabled={

@@ -13,7 +13,7 @@ const SearchComponent = ({
   // console.log("totalItems:", {totalItems});
   return (
     <>
-      <div className="container">
+      <div className="advCheckout container">
         <div className="row">
           <div className="col">
             <h3>Search results</h3>
@@ -34,7 +34,7 @@ const SearchComponent = ({
                     <div
                       className="card"
                       style={{
-                        width: "290px",
+                        width: "270px",
                         boxShadow: "10px 10px 10px black",
                         borderRadius:"10px"
                       }}
@@ -68,8 +68,9 @@ const SearchComponent = ({
                 ))
               )}
             </div>
+            
           </div>
-          <div className="col-lg-3 col-sm-5 p-1 imageContSearch" style={{border:"1px solid", boxShadow:"black 10px 10px 10px"}}>
+          <div className="col-lg-3 col-sm-5 p-1 advCheckout imageContSearch my-5" style={{border:"1px solid", boxShadow:"black 10px 10px 10px"}}>
             <UserCartComponent
               cartProducts={cartProducts}
               setCartProducts={setCartProducts}
